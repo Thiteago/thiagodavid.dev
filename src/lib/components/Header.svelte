@@ -1,16 +1,16 @@
 <script>
   import { onMount } from "svelte"
+  import { isMobile } from '$lib/js/store.js'
   import Footer from '$lib/components/Footer.svelte'
 
   let actual_page = 'home'
-  let isMobile = false
   let mobileMenu = false
 
   const checkWidth = () => {
     if (window.innerWidth < 768) {
-      isMobile = true
+      $isMobile = true
     } else {
-      isMobile = false
+      $isMobile = false
     }
   }
 
@@ -22,7 +22,7 @@
   })
 </script>
 
-{#if !isMobile}
+{#if !$isMobile}
   <header class="w-full sm:hidden md:flex">
     <nav class="w-full">
       <ul class="flex w-full text-white border-b-2 border-lines-default items-center">
@@ -69,7 +69,7 @@
             <div class="cursor-pointer w-full font-fira border-b-2 border-lines-default px-4 py-3 text-white text-nowrap">_contact-me</div>
           </div>
         </nav>
-        <Footer isMobile={true}></Footer>
+        <Footer></Footer>
       </div>
     {/if}
   </header>
