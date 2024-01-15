@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^4.0.4",
 		"remixicon": "^4.1.0"
 	}
 }
