@@ -4,7 +4,7 @@
 
   let actual_page = 'home'
   let isMobile = false
-  let mobileMenu = true
+  let mobileMenu = false
 
   const checkWidth = () => {
     if (window.innerWidth < 768) {
@@ -39,7 +39,7 @@
           </div>
         </div>
         <li class="sm:w-fit md:w-3/6"></li>
-        <li class="w-2/6 font-fira border-l-2 border-lines-default px-4 py-3 flex justify-end text-secondary-grey text-nowrap"><a href="/contact">_contact-me</a></li>
+        <li class="font-fira border-l-2 border-lines-default px-4 py-3 flex justify-end text-secondary-grey text-nowrap"><a href="/contact">_contact-me</a></li>
       </ul>
     </nav>
   </header>
