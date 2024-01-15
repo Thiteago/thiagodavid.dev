@@ -18,7 +18,7 @@
       </p>
     </div>
   </div>
-  <div class="w-1/3">
+  <div class="w-fit">
     <SnakeGame />
   </div>
 </section>

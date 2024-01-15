@@ -4,25 +4,21 @@
   import Food from "./SnakeGame/Food.svelte";
   import Game from "./SnakeGame/Game.svelte";
 
-  let food = {
-    eated: false
-  };
+  let score = 0
+  let biggestScore
 
-  let foodToBeEated = Array.from({length: 99}, () => food);
 </script>
 
-<div class="w-full background z-20 relative">
+<div class="w-full mx-6 background z-20 relative max-w-xl">
   <div class="flex justify-between">
     <Screw />
     <Screw />
   </div>
   <div class="flex gap-12 justify-center">
     <div>
-      <div class="h-[405px] w-[240px] bg-red-500">
-        <Game />
-      </div>
+      <Game bind:score bind:biggestScore/>
     </div>
-    <div>
+    <div class="relative">
       <div class="bg-black/10 rounded-lg p-3 max-w-64">
         <div>
           <p class="font-fira text-white">// use keyboard</p>
@@ -39,12 +35,19 @@
           </div>
         </div>
       </div>
-      <div class="mt-6 max-w-64">
+      <div class="mt-16 max-w-64 ">
         <p class="font-fira text-white">// your score</p>
-        <div class="font-fira text-white flex items-center text-4xl flex-wrap gap-2">
-          <Food />
-          <span>32 Eated</span>
+        <div class="font-fira text-white flex items-center flex-col text-4xl flex-wrap max-w-60 min-w-60 truncate">
+          <div class="flex bg-primary-default w-full px-6 items-center gap-3 rounded-lg">
+            <Food />
+            <span class="flex gap-1 items-end">{score}</span>
+          </div>
         </div>
+        {#if biggestScore}
+          <div class="font-fira flex absolute bottom-0 right-3 items-center justify-center text-sm flex-wrap gap-2 bg-primary-default rounded p-1 text-nowrap">
+            <span class="text-white">{biggestScore} is your Best Score 🏆</span>
+          </div>
+        {/if}
       </div>
     </div>
   </div>
