@@ -3,7 +3,7 @@
   import { isMobile } from '$lib/js/store.js'
   import Footer from '$lib/components/Footer.svelte'
 
-  let actual_page = 'home'
+  export let actual_page = 'home'
   let mobileMenu = false
 
   const checkWidth = () => {
