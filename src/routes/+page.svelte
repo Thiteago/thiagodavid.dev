@@ -2,4 +2,6 @@
   import Header from '$lib/components/Header.svelte';
 </script>
 
-<Header></Header>
+<main class="bg-primary-light w-svw h-svh overflow-hidden">
+  <Header></Header>
+</main>
