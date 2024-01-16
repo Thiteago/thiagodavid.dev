@@ -8,6 +8,7 @@
   let direction, loopId
   export let score = 0
   const size = 15
+  let movements = [] 
   let canvas
   let food
   let ctx
@@ -39,6 +40,7 @@
       if (key == "ArrowUp" && direction != "down") {
         direction = "up"
       }
+      movements.push(direction)
     })
   })
   
@@ -87,7 +89,8 @@
   }
 
   const moveSnake = () => {
-    if (!direction || isGameOver) return
+    if (isGameOver) return
+    direction = movements.shift() || direction
 
     const head = snake[snake.length - 1]
 
@@ -140,7 +143,7 @@
     const wallCollision = head.x < 0 || head.x > canvasWidthLimit || head.y < 0 || head.y > canvasHeightLimit
 
     const selfCollision = snake.find((position, index) => {
-        return index < neckIndex && position.x == head.x && position.y == head.y
+      return position.x == head.x && position.y == head.y && index < neckIndex
     })
 
     if (wallCollision || selfCollision) {
@@ -149,6 +152,7 @@
   }
 
   const gameOver = () => {
+    movements = []
     direction = undefined
     if(biggestScore  < score){
       localStorage.setItem("biggestScore", score)
