@@ -2,7 +2,7 @@
   export let alignWithFlex = false
 </script>
 
-<div class="w-full flex {alignWithFlex ? 'flex-col items-center justify-center' : ''} container-content">
+<div class="w-full max-w-screen-2xl m-auto flex {alignWithFlex ? 'flex-col items-center justify-center' : ''} container-content">
   <slot></slot>
 </div>
 
