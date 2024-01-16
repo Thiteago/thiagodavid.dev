@@ -87,7 +87,7 @@
   }
 
   const moveSnake = () => {
-    if (!direction) return
+    if (!direction || isGameOver) return
 
     const head = snake[snake.length - 1]
 
