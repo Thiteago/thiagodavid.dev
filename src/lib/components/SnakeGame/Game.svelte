@@ -82,6 +82,8 @@
     snake.forEach((position, index) => {
       if (index == snake.length - 1) {
         ctx.fillStyle = "white"
+        ctx.shadowColor = "white"
+        ctx.shadowBlur = 12
       }
 
       ctx.fillRect(position.x, position.y, size, size)
@@ -203,6 +205,12 @@
     </div>
   {/if}
   {#if !loopId}
-    <button class="absolute bg-accent-orange rounded p-2 top-1/2 left-[6.3rem]" on:click={startGame}>Start Game</button>
+    <button class="absolute bg-accent-orange font-fira rounded p-2 bottom-12 left-[5.5rem] glow" on:click={startGame}>Start Game</button>
   {/if}
 </div>
+
+<style>
+  .glow {
+    filter: drop-shadow(0 0 0.35rem #FEA55F);
+  }
+</style>
