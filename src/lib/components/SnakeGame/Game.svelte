@@ -5,6 +5,7 @@
   let snake = [initialPosition]
   export let biggestScore = 0
   let isGameOver = false
+  let isGameWin = false
   let direction, loopId
   export let score = 0
   const size = 15
@@ -12,7 +13,6 @@
   let canvas
   let food
   let ctx
-  
   onMount(() => {
     canvas = document.querySelector("canvas")
     ctx = canvas.getContext("2d")
@@ -58,11 +58,17 @@
   }
 
   const randomColor = () => {
-    const red = randomNumber(0, 255)
-    const green = randomNumber(0, 255)
-    const blue = randomNumber(0, 255)
+    let colors = [
+      "#FF0000",
+      "#FF7F00",
+      "#FFFF00",
+      "#00FF00",
+      "#0000FF",
+      "#4B0082",
+      "#9400D3"
+    ]
 
-    return `rgb(${red}, ${green}, ${blue})`
+    return colors[randomNumber(0, colors.length - 1)]
   }
 
   const drawFood = () => {
@@ -165,10 +171,25 @@
     isGameOver = true
   }
 
+  const gameWin = () => {
+    movements = []
+    direction = undefined
+    snake = [initialPosition]
+    canvas.style.filter = "blur(4px)"
+    isGameWin = true
+  }
+
+  const checkWin = () => {
+    if(score == 486000){
+      gameWin()
+    }
+  }
+
   const gameLoop = () => {
     clearInterval(loopId)
 
     ctx.clearRect(0, 0, 240, 405)
+    checkWin()
     drawFood()
     moveSnake()
     drawSnake()
@@ -198,10 +219,16 @@
 <div class="h-[405px] w-[240px] bg-primary-default rounded-lg">
   <canvas class="relative" id="snake" width="240" height="405">
   </canvas>
+  {#if isGameWin}
+    <div class="absolute bottom-12 left-[3.7rem] flex justify-center items-center flex-col">
+      <p class="font-fira text-white text-3xl">You Win 🏆</p>
+      <button class="bg-accent-orange rounded p-2 mt-2 font-fira font-bold glow" on:click={startGame}>Play Again</button>
+    </div>
+  {/if}
   {#if isGameOver}
-    <div class="absolute top-1/2 left-[3.8rem] flex justify-center items-center flex-col">
-      <p class="font-fira text-white text-3xl">Game Over</p>
-      <button class="bg-accent-orange rounded p-2 mt-2 font-fira font-bold" on:click={startGame}>Try Again</button>
+    <div class="absolute bottom-12 left-[3.7rem] h-full pt-64 flex justify-between items-center flex-col">
+      <p class="font-fira text-white text-3xl font-bold">Game Over</p>
+      <button class="bg-accent-orange rounded p-2 mt-2 font-fira font-bold glow" on:click={startGame}>Try Again</button>
     </div>
   {/if}
   {#if !loopId}
