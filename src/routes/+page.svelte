@@ -6,7 +6,7 @@
   import { isMobile } from "$lib/js/store.js";
   import Container from '$lib/components/Container.svelte';
 
-  let actual_page = "about_me"
+  let actual_page = "home"
 
 </script>
 
