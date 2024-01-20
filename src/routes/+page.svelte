@@ -6,13 +6,13 @@
   import { isMobile } from "$lib/js/store.js";
   import Container from '$lib/components/Container.svelte';
 
-  let actual_page = "home"
+  let actual_page = "about_me"
 
 </script>
 
 <main class="bg-primary-light w-svw h-svh overflow-hidden">
   <Header bind:actual_page />
-  <Container alignWithFlex={actual_page == "home"}>
+  <Container alignWithFlex={actual_page == "home"} limit_witdth={actual_page == "home"}>
     {#if actual_page == "home"}
       <Home />
     {:else if actual_page == "about_me"}
