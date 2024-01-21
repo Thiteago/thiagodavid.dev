@@ -4,8 +4,8 @@
 
   let sectionSelected
   let tabs = []
-  let startYear = 2022
-  let bornYear = 1998
+  const startYear = 2022
+  const bornYear = 1998
   let currentYear = new Date().getFullYear()
 
   $: {
@@ -15,9 +15,7 @@
   }
 
   function removeTab(tab){
-    if(tab == sectionSelected){
-      sectionSelected = null
-    }
+    if(tab == sectionSelected) sectionSelected = null
     tabs = tabs.filter(t => t != tab)
   }
 </script>
@@ -59,7 +57,7 @@
             <tbody>
               <tr class="flex gap-6">
                 <td class="font-fira text-secondary-grey">1</td>
-                <td class="pl-3 font-fira text-secondary-blue"><span class="text-accent-purple">class</span> myBioController <span class="text-accent-purple">&lt;</span> ApplicationController</td>
+                <td class="pl-3 font-fira text-secondary-blue"><span class="text-accent-purple">class</span> MyBioController <span class="text-accent-purple">&lt;</span> ApplicationController</td>
               </tr>
               <tr class="flex gap-6">
                 <td class="font-fira text-secondary-grey">2</td>
