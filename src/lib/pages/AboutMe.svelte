@@ -61,7 +61,7 @@
               </tr>
               <tr class="flex gap-6">
                 <td class="font-fira text-secondary-grey">2</td>
-                <td class="pl-6 font-fira text-accent-green"><span class="text-accent-purple">def</span> myBio</td>
+                <td class="pl-6 font-fira text-accent-green"><span class="text-accent-purple">def</span> index</td>
               </tr>
               <tr class="flex gap-6">
                 <td class="font-fira text-secondary-grey">3</td>

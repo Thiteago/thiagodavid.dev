@@ -16,6 +16,7 @@
   onMount(() => {
     canvas = document.querySelector("canvas")
     ctx = canvas.getContext("2d")
+
     food = {
       x: randomPosition(),
       y: randomPosition(),
@@ -54,7 +55,11 @@
 
   const randomPosition = () => {
     const number = randomNumber(0, canvas.width - size)
-    return Math.round(number / 30) * 30
+    let numberToReturn
+    do
+      numberToReturn = Math.round(number / 30) * 30
+    while (numberToReturn >= canvas.width)
+    return numberToReturn
   }
 
   const randomColor = () => {
@@ -147,6 +152,7 @@
     const canvasWidthLimit = canvas.width - size
     const canvasHeightLimit = canvas.height - 1
     const neckIndex = snake.length - 2
+    console.log(head.x)
 
     const wallCollision = head.x < 0 || head.x > canvasWidthLimit || head.y < 0 || head.y > canvasHeightLimit
 
