@@ -33,7 +33,9 @@
     <div>
       <p class="text-secondary-grey font-fira">// you can also see it on my Github repository.</p>
       <p class="text-white">
-        <span class="text-secondary-blue text-sm md:text-md font-fira">const</span> <span class="text-accent-green font-fira text-sm md:text-md">githubLink</span> = <span class="text-accent-red font-fira text-sm md:text-md break-words">"https://github.com/Thiteago/thiagodavid.dev"</span>
+        <span class="text-secondary-blue text-sm md:text-md font-fira">const</span> <span class="text-accent-green font-fira text-sm md:text-md">githubLink</span> = <span class="text-accent-red font-fira text-sm md:text-md break-words">"<a target="_blank" href="https://github.com/Thiteago/thiagodavid.dev">https://github.com/Thiteago/thiagodavid.dev"
+          </a>
+        </span>
       </p>
     </div>
   </div>
