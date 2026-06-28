@@ -1,6 +1,7 @@
 <script>
   import SnakeGame from "$lib/components/SnakeGame.svelte";
   import { isMobile } from "$lib/js/store.js";
+  import { t } from "$lib/js/i18n.js";
   import { onMount } from "svelte";
 
   let notebookRes = false
@@ -19,19 +20,18 @@
       notebookRes = false
     }
   }
-
 </script>
 
 
 <section class="w-3/4 m-auto flex items-center justify-center">
   <div class="w-full md:w-2/3 flex flex-col gap-16">
     <div>
-      <h3 class="font-fira text-2xl md:text-4xl text-white">Hi all. I am</h3>
+      <h3 class="font-fira text-2xl md:text-4xl text-white">{$t.home.greeting}</h3>
       <h1 class="font-fira text-5xl md:text-8xl text-white">Thiago David</h1>
       <h2 class="font-fira text-xl md:text-4xl text-secondary-blue mt-3"><span>&gt;</span> Full-Stack Developer</h2>
     </div>
     <div>
-      <p class="text-secondary-grey font-fira">// you can also see it on my Github repository.</p>
+      <p class="text-secondary-grey font-fira">{$t.home.comment}</p>
       <p class="text-white">
         <span class="text-secondary-blue text-sm md:text-md font-fira">const</span> <span class="text-accent-green font-fira text-sm md:text-md">githubLink</span> = <span class="text-accent-red font-fira text-sm md:text-md break-words">"<a target="_blank" href="https://github.com/Thiteago/thiagodavid.dev">https://github.com/Thiteago/thiagodavid.dev"
           </a>

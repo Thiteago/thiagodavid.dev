@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte"
   import { isMobile } from '$lib/js/store.js'
+  import { lang, t } from '$lib/js/i18n.js'
   import Footer from '$lib/components/Footer.svelte'
 
   export let actual_page = 'home'
@@ -20,6 +21,9 @@
     }
     checkWidth()
   })
+
+  const langs = ['en', 'pt-br', 'es']
+  const langLabels = { en: 'EN', 'pt-br': 'PT', es: 'ES' }
 </script>
 
 {#if !$isMobile}
@@ -29,17 +33,28 @@
         <li class="w-1/6 mx-6 text-secondary-grey font-fira text-nowrap">thiago-david</li>
         <div class="w-3/6 flex items-center">
           <div tabindex="-1" role="button" on:click={() => actual_page="home"} on:keydown={() => actual_page="home"} class="cursor-pointer border-x-2 border-lines-default px-4 py-3 font-fira {actual_page == 'home' ? "text-white relative" : 'text-secondary-grey'} ">
-            <span class="{actual_page == 'home' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">_hello</span>
+            <span class="{actual_page == 'home' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">{$t.nav.hello}</span>
           </div>
           <div tabindex="-2" role="button" on:click={() => actual_page="about_me"} on:keydown={() => actual_page="about_me"} class="cursor-pointer px-4 py-3 font-fira {actual_page == 'about_me' ? "text-white relative" : 'text-secondary-grey'}">
-            <span class="{actual_page == 'about_me' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">_about-me</span>
+            <span class="{actual_page == 'about_me' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">{$t.nav.aboutMe}</span>
           </div>
           <div tabindex="-3" role="button" on:click={() => actual_page="experience"} on:keydown={() => actual_page="experience"} class=" cursor-pointer border-x-2 border-lines-default px-4 py-3 font-fira {actual_page == 'experience' ? "text-white relative" : 'text-secondary-grey'} ">
-            <span class="{actual_page == 'experience' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''} text-nowrap">_experience</span>
+            <span class="{actual_page == 'experience' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''} text-nowrap">{$t.nav.experience}</span>
           </div>
         </div>
-        <li class="sm:w-fit md:w-3/6"></li>
-        <li class="font-fira border-l-2 border-lines-default px-4 py-3 flex justify-end text-secondary-grey text-nowrap"><a href="/contact">_contact-me</a></li>
+        <li class="flex-1"></li>
+        <li class="font-fira border-x-2 border-lines-default px-4 py-3 flex gap-2 items-center">
+          {#each langs as l}
+            <button
+              on:click={() => lang.set(l)}
+              class="font-fira text-sm transition-colors {$lang === l ? 'text-white' : 'text-secondary-grey hover:text-white/70'}"
+            >{langLabels[l]}</button>
+            {#if l !== 'es'}<span class="text-lines-default">|</span>{/if}
+          {/each}
+        </li>
+        <li class="font-fira border-r-2 border-lines-default px-4 py-3 flex justify-end text-secondary-grey text-nowrap">
+          <a href="mailto:thiagodavidpd@gmail.com">{$t.nav.contactMe}</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -49,8 +64,19 @@
       <div class="text-secondary-grey font-fira text-nowrap text-xl">
         thiago-david
       </div>
-      <div on:click={() => {mobileMenu = !mobileMenu}} on:keydown={() => mobileMenu = true} role="button" tabindex="-5">
-        <i class="{mobileMenu ? 'ri-close-fill' : 'ri-menu-line'} text-secondary-grey text-3xl"></i>
+      <div class="flex items-center gap-4">
+        <div class="flex gap-2 items-center">
+          {#each langs as l}
+            <button
+              on:click={() => lang.set(l)}
+              class="font-fira text-sm transition-colors {$lang === l ? 'text-white' : 'text-secondary-grey'}"
+            >{langLabels[l]}</button>
+            {#if l !== 'es'}<span class="text-lines-default text-xs">|</span>{/if}
+          {/each}
+        </div>
+        <div on:click={() => {mobileMenu = !mobileMenu}} on:keydown={() => mobileMenu = true} role="button" tabindex="-5">
+          <i class="{mobileMenu ? 'ri-close-fill' : 'ri-menu-line'} text-secondary-grey text-3xl"></i>
+        </div>
       </div>
     </div>
     {#if mobileMenu}
@@ -58,15 +84,15 @@
         <nav class="w-full">
           <div class="flex flex-col w-full text-white items-start">
             <div tabindex="-1" role="button" on:click={() => actual_page="home"} on:keydown={() => actual_page="home"} class="w-full cursor-pointer border-b-2 border-lines-default px-4 py-3 font-fira {actual_page == 'home' ? " relative" : ''} text-white ">
-              <span class="{actual_page == 'home' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">_hello</span>
+              <span class="{actual_page == 'home' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">{$t.nav.hello}</span>
             </div>
             <div tabindex="-2" role="button" on:click={() => actual_page="about_me"} on:keydown={() => actual_page="about_me"} class="w-full border-b-2 border-lines-default cursor-pointer px-4 py-3 font-fira {actual_page == 'about_me' ? " relative" : ''} text-white">
-              <span class="{actual_page == 'about_me' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">_about-me</span>
+              <span class="{actual_page == 'about_me' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''}text-nowrap">{$t.nav.aboutMe}</span>
             </div>
             <div tabindex="-3" role="button" on:click={() => actual_page="experience"} on:keydown={() => actual_page="experience"} class="w-full border-b-2 border-lines-default cursor-pointer px-4 py-3 font-fira {actual_page == 'experience' ? " relative" : ''}  text-white">
-              <span class="{actual_page == 'experience' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''} text-nowrap">_experience</span>
+              <span class="{actual_page == 'experience' ? "after:content-[''] after:w-full after:bg-accent-orange after:h-1 after:absolute after:flex after:right-0 after:bottom-0 " : ''} text-nowrap">{$t.nav.experience}</span>
             </div>
-            <div class="cursor-pointer w-full font-fira border-b-2 border-lines-default px-4 py-3 text-white text-nowrap">_contact-me</div>
+            <a href="mailto:thiagodavidpd@gmail.com" class="cursor-pointer w-full font-fira border-b-2 border-lines-default px-4 py-3 text-white text-nowrap">{$t.nav.contactMe}</a>
           </div>
         </nav>
         <Footer></Footer>

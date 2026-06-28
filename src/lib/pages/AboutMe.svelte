@@ -4,6 +4,7 @@
   import Bio from "$lib/components/pages_content/Bio.svelte";
   import Interests from "$lib/components/pages_content/Interests.svelte";
   import Education from "$lib/components/pages_content/Education.svelte";
+  import { t } from "$lib/js/i18n.js";
 
   let sectionSelected
   let tabs = []
@@ -24,7 +25,7 @@
   <div class="flex flex-col h-full">
     <div class="flex gap-2 items-center p-1 pr-24 border-b-2 border-r-2 border-lines-default">
       <i class="ri-arrow-drop-down-fill text-white text-lg"></i>
-      <p class="font-fira text-white">personal-info</p>
+      <p class="font-fira text-white">{$t.aboutMe.personalInfo}</p>
     </div>
     <div class="p-2 border-r-2 border-b-2 border-lines-default flex flex-col">
       <div tabindex="-1" role="button" on:click={() => sectionSelected = 'bio'} on:keydown={() => sectionSelected = 'bio'} class="font-fira flex gap-2 items-center {sectionSelected == "bio" ? 'text-white' : 'text-secondary-grey'}  cursor-pointer"><img class="w-4" src={ruby_icon} alt=""> bio.rb</div>
@@ -33,10 +34,12 @@
     </div>
     <div class="flex gap-2 items-center p-1 pr-24 border-b-2 border-r-2 border-lines-default">
       <i class="ri-arrow-drop-down-fill text-white text-lg"></i>
-      <p class="font-fira text-white">contacts</p>
+      <p class="font-fira text-white">{$t.aboutMe.contacts}</p>
     </div>
     <div class="px-2 border-r-2 border-lines-default flex h-full">
-      <p class="font-fira flex gap-2 pt-1 text-secondary-grey"><i class="ri-mail-fill"></i> thiagodavidpd@gmail.com</p>
+      <a href="mailto:thiagodavidpd@gmail.com" class="font-fira flex gap-2 pt-1 text-secondary-grey hover:text-white transition-colors">
+        <i class="ri-mail-fill"></i> thiagodavidpd@gmail.com
+      </a>
     </div>
   </div>
   <div class="flex flex-col w-full">
@@ -66,10 +69,11 @@
       {:else}
         <div class="flex flex-col m-0 w-full justify-center items-center">
           <i class="ri-list-view text-8xl text-secondary-grey font-fira"></i>
-          <p class="font-fira text-secondary-grey">Select a section on the left side bar</p>
+          <p class="font-fira text-secondary-grey">{$t.aboutMe.selectSection}</p>
         </div>
       {/if}
     </div>
+  </div>
 </section>
 
 <style>

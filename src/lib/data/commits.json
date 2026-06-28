@@ -1,0 +1,56 @@
+[
+  {
+    "hash": "a1b2c3d",
+    "fullHash": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+    "refs": ["HEAD -> main", "tag: senior"],
+    "title": "feat: promoted to Senior Full-Stack Developer",
+    "role": "Desenvolvedor Fullstack Sênior",
+    "company": "Real Seguro Viagem",
+    "period": "Jul 2026 – present",
+    "isHead": true,
+    "stack": ["Ruby", "Rails", "SvelteKit", "Sidekiq", "Redis", "View Components", "Storybook", "Docker", "Kamal", "Grafana", "PostgreSQL", "MySQL", "DigitalOcean"],
+    "highlights": []
+  },
+  {
+    "hash": "b3c4d5e",
+    "fullHash": "b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2",
+    "refs": [],
+    "title": "feat: promoted to Pleno Full-Stack Developer",
+    "role": "Desenvolvedor Fullstack Pleno",
+    "company": "Real Seguro Viagem",
+    "period": "Jan 2025 – Jul 2026",
+    "isHead": false,
+    "stack": ["Ruby", "Rails", "SvelteKit", "Sidekiq", "Redis", "View Components", "Docker", "Capistrano", "PostgreSQL", "MySQL", "DigitalOcean"],
+    "highlights": []
+  },
+  {
+    "hash": "c5d6e7f",
+    "fullHash": "c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+    "refs": [],
+    "title": "feat: promoted to Junior Full-Stack Developer",
+    "role": "Desenvolvedor Fullstack Junior",
+    "company": "Real Seguro Viagem",
+    "period": "Jul 2023 – Jan 2025",
+    "isHead": false,
+    "stack": ["Ruby", "Rails", "SvelteKit", "Sidekiq", "Redis", "PostgreSQL", "MySQL"],
+    "highlights": [
+      "Refatorei todo o hotsite de parceiros, tornando ele mais personalizavel e com melhor usabilidade ao usuario.",
+      "Lidei com atualizações de software como o Zammad, tendo que garantir a compatibilidade com diferentes modulos como o elasticsearch e as limitações de recursos da máquina."
+    ]
+  },
+  {
+    "hash": "d7e8f9a",
+    "fullHash": "d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6",
+    "refs": ["tag: first-commit"],
+    "title": "feat: joined Real Seguro Viagem as Intern",
+    "role": "Estagiário",
+    "company": "Real Seguro Viagem",
+    "period": "Out 2022 – Jul 2023",
+    "isHead": false,
+    "stack": ["Ruby", "Rails", "JavaScript", "PostgreSQL", "MySQL"],
+    "highlights": [
+      "Primeiro contato com ruby e seu ecossistema",
+      "Desenvolvi um projeto durante meu estágio, onde implementei um telefone digital que possibilitava ligações online ao suporte de uma seguradora. Esse projeto foi importantissimo para compreender varios aspectos de reatividade do sveltekit."
+    ]
+  }
+]

@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import Home from '$lib/pages/Home.svelte';
   import AboutMe from '$lib/pages/AboutMe.svelte';
+  import Experience from '$lib/pages/Experience.svelte';
   import { isMobile } from "$lib/js/store.js";
   import Container from '$lib/components/Container.svelte';
 
@@ -17,6 +18,8 @@
       <Home />
     {:else if actual_page == "about_me"}
       <AboutMe />
+    {:else if actual_page == "experience"}
+      <Experience />
     {/if}
   </Container>
   {#if !$isMobile}

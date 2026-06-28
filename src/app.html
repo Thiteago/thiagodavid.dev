@@ -1,35 +1,35 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Thiago David's Portfolio</title>
-		<meta name="description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="%sveltekit.assets%/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thiago David's Portfolio</title>
+    <meta name="description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
 
-		<!-- Google / Search Engine Tags -->
-		<meta itemprop="name" content="Thiago David's Portfolio">
-		<meta itemprop="description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
-		<meta itemprop="image" content="https://github.com/Thiteago/thiagodavid.dev/assets/42258486/9a33baba-8af4-4fab-b2c8-e6c6644eb7f3">
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Thiago David's Portfolio">
+    <meta itemprop="description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
+    <meta itemprop="image" content="https://github.com/Thiteago/thiagodavid.dev/assets/42258486/9a33baba-8af4-4fab-b2c8-e6c6644eb7f3">
 
-		<!-- Facebook Meta Tags -->
-		<meta property="og:url" content="https://thiagodavid.dev">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="Thiago David's Portfolio">
-		<meta property="og:description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
-		<meta property="og:image" content="https://private-user-images.githubusercontent.com/42258486/298309452-f709dcdf-c771-4b0a-9347-af08446a5cb0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDU3ODc5NDgsIm5iZiI6MTcwNTc4NzY0OCwicGF0aCI6Ii80MjI1ODQ4Ni8yOTgzMDk0NTItZjcwOWRjZGYtYzc3MS00YjBhLTkzNDctYWYwODQ0NmE1Y2IwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAxMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMTIwVDIxNTQwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTcxZjg4MGMwNGVlMWI2MDNmNDk5NDEyN2JkMGIwZWQ3ZmQ3Y2IzODRkNjllMjNiNmNiY2Q0MmNkZmUzM2Q2YTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0._T6kQ4WCFIiDqkYuVS46wqVFNprX8e6nXwGotb5I6ps">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://thiagodavid.dev">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thiago David's Portfolio">
+    <meta property="og:description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
+    <meta property="og:image" content="https://private-user-images.githubusercontent.com/42258486/298309452-f709dcdf-c771-4b0a-9347-af08446a5cb0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDU3ODc5NDgsIm5iZiI6MTcwNTc4NzY0OCwicGF0aCI6Ii80MjI1ODQ4Ni8yOTgzMDk0NTItZjcwOWRjZGYtYzc3MS00YjBhLTkzNDctYWYwODQ0NmE1Y2IwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAxMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMTIwVDIxNTQwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTcxZjg4MGMwNGVlMWI2MDNmNDk5NDEyN2JkMGIwZWQ3ZmQ3Y2IzODRkNjllMjNiNmNiY2Q0MmNkZmUzM2Q2YTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0._T6kQ4WCFIiDqkYuVS46wqVFNprX8e6nXwGotb5I6ps">
 
-		<!-- Twitter Meta Tags -->
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Thiago David's Portfolio">
-		<meta name="twitter:description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
-		<meta name="twitter:image" content="https://github.com/Thiteago/thiagodavid.dev/assets/42258486/9a33baba-8af4-4fab-b2c8-e6c6644eb7f3">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&family=Fira+Code:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono&display=swap" rel="stylesheet">
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thiago David's Portfolio">
+    <meta name="twitter:description" content="Explore my portfolio for a showcase of coding solutions and expertise, illustrating my journey in the development career.">
+    <meta name="twitter:image" content="https://github.com/Thiteago/thiagodavid.dev/assets/42258486/9a33baba-8af4-4fab-b2c8-e6c6644eb7f3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&family=Fira+Code:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono&display=swap" rel="stylesheet">
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
 </html>
